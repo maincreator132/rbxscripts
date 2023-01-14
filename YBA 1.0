@@ -1,0 +1,324 @@
+local players = game:GetService("Players")
+local localplayer = game:GetService("Players").LocalPlayer
+local Workspace = game:GetService("Workspace")
+local curpl = localplayer.Name
+local camera = Workspace.Camera
+local curhumanoidrootpart = localplayer.Character.HumanoidRootPart
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zakater5/LuaRepo/main/YBA/v3.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("YBA 04.11.2022", "Ocean")
+local Tab = Window:NewTab("Extra Stuff")
+local Section = Tab:NewSection("Player")
+Section:NewTextBox("Teleport to", "Teleport to player", function(tppl)
+	curhumanoidrootpart.CFrame = Workspace.Living[tppl].HumanoidRootPart.CFrame + Workspace.Living[tppl].HumanoidRootPart.CFrame.LookVector * -5
+end)
+Section:NewButton("Sell item in the hand", "read the name :/", function()
+  local args = {
+    [1] = "EndDialogue",
+    [2] = {
+        ["NPC"] = "Merchant",
+        ["Option"] = "Option1",
+        ["Dialogue"] = "Dialogue5"
+    	}
+  }
+localplayer.Character.RemoteEvent:FireServer(unpack(args))
+end)
+
+Section:NewDropdown("Teleport to location", "Stop checking dis", {"Merchant's Keep", "Train Station", "Via Toledo", "Via dell'Oceano", "Prison Bridge", "Parking Lot"}, function(currentOption)
+    if currentOption == "Merchant's Keep" then
+		curhumanoidrootpart.CFrame = CFrame.new(-621.452332, -25.6434708, -466.938904, -0.999999285, 5.27261754e-08, -0.0011832423, 5.26177431e-08, 1, 9.16725895e-08, 0.0011832423, 9.16102678e-08, -0.999999285)
+	end
+    if currentOption == "Train Station" then
+		curhumanoidrootpart.CFrame = CFrame.new(-456.06958, 0.378206402, -8.65362835, -1.69975023e-13, -1.26777415e-08, -1, -9.80326718e-08, 1, -1.26777415e-08, 1, 9.80326718e-08, -1.71217858e-13)
+	end
+    if currentOption == "Parking Lot" then
+		curhumanoidrootpart.CFrame = CFrame.new(-146.697052, 0.393531471, -675.541626, -1, 7.62316148e-08, 2.36345719e-13, 7.62316148e-08, 1, 2.9753739e-08, -2.34077541e-13, 2.9753739e-08, -1)
+	end
+    if currentOption == "Via Toledo" then
+		curhumanoidrootpart.CFrame = CFrame.new(-134.179993, 0.355184257, -117.47789, -1.68877685e-14, -1.04675673e-08, -1, 5.37419602e-08, 1, -1.04675673e-08, 1, -5.37419602e-08, -1.63252217e-14)
+	end
+    if currentOption == "Via dell'Oceano" then
+		curhumanoidrootpart.CFrame = CFrame.new(16.8451385, -25.6434689, 588.354187, 1, 2.84788193e-08, -6.12577277e-15, -2.84788193e-08, 1, -6.70218014e-08, 4.21707084e-15, 6.70218014e-08, 1)
+	end
+    if currentOption == "Prison Bridge" then
+		curhumanoidrootpart.CFrame = CFrame.new(590.217957, 0.393531471, -170.417542, -1.19209247e-07, 7.00526144e-08, 1, -7.29958316e-08, 1, -7.00526215e-08, -1, -7.29958387e-08, -1.19209247e-07)
+	end
+end)
+Section:NewDropdown("Player list", "Stop checking dis really", {"invis", "visible"}, function(playerlist)
+	if playerlist == "invis" then
+		localplayer.PlayerGui.HUD.Playerlist.Visible = false
+	elseif playerlist == "visible" then
+		localplayer.PlayerGui.HUD.Playerlist.Visible = true
+	end
+end)
+Section:NewDropdown("Plot Quests", "really fast prestige", {"5 Guardians", "Leaky Eye Luca", "Bucciarati", "Running around", "Trisha Uno (5K+ money)", "Pesci", "Ice Cube", "Diavolo", "End"}, function(plotquest)
+	if plotquest == "5 Guardians" then
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #1",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue2"
+    		}
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		curhumanoidrootpart.CFrame = CFrame.new(11.9, 10.1, -727.0, -0.0, -1.0, -1.0, -4, 1, -1.0, 0.9, 4.2, -0.0)
+	elseif plotquest == "Leaky Eye Luca" then
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #1",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue6"
+    		}
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #2",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue3"
+    		}	
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #3",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue3"
+    		}
+		}
+		wait(0.1)
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		curhumanoidrootpart.CFrame = CFrame.new(-371.2, 10.6, -733.5, 0.0, 6.7, -0.9, 7.1, 1, 7.2, 0.9, -7.5, 0.0)
+	elseif plotquest == "Bucciarati" then
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #3",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue6"
+    		}
+		}
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		curhumanoidrootpart.CFrame = CFrame.new(-266.3, 10.0, 179.1, -0.9, 5.7, -0.0, 5.8, 1, -1.6, 0.0, -1.6, -0.9)
+	elseif plotquest == "Running around" then
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #4",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue3"
+    		}
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #5",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue5"
+    		}
+		}
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #6",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue5"
+    		}
+		}
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #7",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue5"
+    		}
+		}
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #8",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue4"
+    		}
+		}
+		wait(0.1)
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #9",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue7"
+    		}
+		}
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #10",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue6"
+    		}
+		}
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		curhumanoidrootpart.CFrame = CFrame.new(-57.5, -15.6, 594.7, -0.9, 4.2, 0.0, 4.1, 1, -2.2, -0.0, -2.0, -0.9)
+	elseif plotquest == "Trisha Uno (5K+ money)" then
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #11",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue8"
+    		}
+		}
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		curhumanoidrootpart.CFrame = CFrame.new(72.6, -15.5, 276.7, 0.9, -7.8, -0.0, 7.8, 1, -5.2, 0.0, 5.2, 0.9)
+	elseif plotquest == "Pesci" then
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #11",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue11"
+    		}
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		curhumanoidrootpart.CFrame = CFrame.new(-265.8, -20.6, -352.7, 1, 1.2, -7.7, -1.2, 1, -9.3, 7.7, 9.0, 1)
+	elseif plotquest == "Ice Cube" then
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #11",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue13"
+    		}
+		}	
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #12",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue3"
+    		}
+		}	
+
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		curhumanoidrootpart.CFrame = CFrame.new(-265.8, -20.5, -610.5, 0.9, -2.9, -0.0, -1.7, 1, -9.1, 0.0, 9.1, 0.9)
+	elseif plotquest == "Diavolo" then
+		local args = {
+    		[1] = "DialogueInteracted",
+    		[2] = {
+       		["DialogueName"] = "Storyline #12",
+        		["Speaker"] = "Mista"
+    		}
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(0.1)
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #13",
+        		["Dialogue"] = "Dialogue7",
+        		["Option"] = "Option1"
+    		}
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #14",
+        		["Option"] = "Option1",
+        		["Dialogue"] = "Dialogue2"
+    		}
+		}
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		local args = {
+    		[1] = "EndDialogue",
+    		[2] = {
+        		["NPC"] = "Storyline #14",
+        		["Dialogue"] = "Dialogue2"
+    		}
+		}
+		curhumanoidrootpart.CFrame = CFrame.new(1062.1, 126.8, -21.6, 0.9, -1.8, -0.0, 1.6, 1, -5.1, 0.0, 5.1, 0.9)
+	elseif plotquest == "End" then
+		local args = {
+            [1] = "EndDialogue",
+            [2] = {
+                ["NPC"] = "Storyline #14",
+                ["Option"] = "Option1",
+                ["Dialogue"] = "Dialogue7"
+            }
+        }
+		localplayer.Character.RemoteEvent:FireServer(unpack(args))
+		wait(2)
+		localplayer.Character.Humanoid.Health = 0
+	end
+	Section:NewDropdown("Jesus Pos", "Checking for Jesus", {"Jesus 1", "Jesus 2", "Jesus 3", "Jesus 4", "Jesus 5"}, function(jesusoption)
+		if jesusoption == "Jesus 1" then
+			curhumanoidrootpart.CFrame = CFrame.new(228.920746, 3.14442968, -259.529755, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+		elseif jesusoption == "Jesus 2" then
+			curhumanoidrootpart.CFrame = CFrame.new(268.220154, 1.55177689, 200.187317, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+		elseif jesusoption == "Jesus 3" then
+			curhumanoidrootpart.CFrame = CFrame.new(466.85907, 9.25252151, -284.435547, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+		elseif jesusoption == "Jesus 4" then
+			curhumanoidrootpart.CFrame = CFrame.new(-53.0598602, 1.31538773, -682.63501, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+		elseif jesusoption == "Jesus 4" then
+			curhumanoidrootpart.CFrame = CFrame.new(125.162537, 8.09181595, 50.2231445, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+		end
+	end)
+end)
+
+local StandSection = Tab:NewSection("Stand")
+
+StandSection:NewTextBox("Stand Attach + you", "Disactivate your stand to go back", function(attach)
+	local checkpoint1 = localplayer.Character.HumanoidRootPart.CFrame
+	if Workspace.Living[curpl].SummonedStand.Value == false then
+		local args = {
+			[1] = "ToggleStand",
+			[2] = "Toggle"
+		}
+		localplayer.Character.RemoteFunction:InvokeServer(unpack(args))
+	end
+	while game:GetService("RunService").Heartbeat:wait() do
+		Workspace.Living[curpl].StandMorph.HumanoidRootPart.CFrame = Workspace.Living[attach].HumanoidRootPart.CFrame + Vector3.new(0,-4,0) + Workspace.Living[attach].HumanoidRootPart.CFrame.LookVector * 3
+		Workspace.Living[curpl].StandMorph.HumanoidRootPart.CFrame = CFrame.lookAt(Workspace.Living[curpl].StandMorph.HumanoidRootPart.Position, Workspace.Living[attach].HumanoidRootPart.Position)
+		curhumanoidrootpart.CFrame = Workspace.Living[attach].HumanoidRootPart.CFrame + Vector3.new(0,-30,0)
+		if Workspace.Living[curpl].SummonedStand.Value == false then
+			wait(0.1)
+			curhumanoidrootpart.CFrame = checkpoint1
+			break
+		end
+	end
+end)
+
+local FunSection = Tab:NewSection("Fun :)")
+FunSection:NewButton("Jesus", "jesuuuus", function()
+    Workspace.JesusSpawned:Play()
+end)
+FunSection:NewButton("nogravity", "ButtonInfo", function()
+    Workspace.Living[curpl].HumanoidRootPart.Rotation = Vector3.new(0,0,10)
+end)
